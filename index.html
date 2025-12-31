@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvanio Gois | Portfólio Técnico de Gestão de Obras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --chart-planned: #60a5fa;
+            --chart-actual: #10b981;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 12px;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header --- */
+        header { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white; 
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            border: 4px solid rgba(255, 255, 255, 0.3); 
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            background-color: white;
+        }
+        
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            font-weight: 300;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        
+        /* --- Container Principal --- */
+        .wrapper { 
+            max-width: 1100px; 
+            margin: -60px auto 60px;
+            padding: 0 20px; 
+            position: relative;
+            z-index: 3;
+        }
+        
+        .card { 
+            background: var(--bg-card); 
+            padding: 40px; 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow-lg); 
+            margin-bottom: 30px;
+            transition: transform 0.2s ease;
+        }
+        
+        h2 { 
+            color: var(--primary); 
+            margin-bottom: 20px; 
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 28px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        h3 {
+            color: var(--primary-light);
+            margin: 25px 0 15px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        /* --- Grids de Informação --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .info-item .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-item .value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .specs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 25px; 
+        }
+        
+        .spec-box { 
+            background: white;
+            padding: 25px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0;
+            border-top: 3px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .spec-box strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .spec-box p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        /* --- Tabelas Responsivas --- */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 600px;
+            background: white;
+        }
+        
+        th { 
+            background: #f1f5f9; 
+            color: var(--primary); 
+            padding: 16px; 
+            text-align: left; 
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        td { 
+            padding: 14px 16px; 
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+        
+        tr:last-child td { border-bottom: none; }
+        
+        .total-row { 
+            background: #f8fafc; 
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* --- Gráficos (Container) --- */
+        .chart-wrapper {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.01);
+        }
+
+        /* Gantt Específico */
+        .gantt-scroll-container {
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .gantt-chart {
+            min-width: 800px;
+            position: relative;
+            height: auto;
+            min-height: 500px;
+            margin-top: 10px;
+        }
+        
+        .gantt-header-row {
+            display: grid;
+            grid-template-columns: 200px repeat(12, 1fr);
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .gantt-col-header {
+            padding: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+            color: var(--text-muted);
+        }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 200px repeat(12, 1fr);
+            border-bottom: 1px solid #f1f5f9;
+            height: 45px;
+            align-items: center;
+            position: relative;
+        }
+
+        .gantt-task-label {
+            padding: 0 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-right: 1px solid #e2e8f0;
+            background: white;
+            z-index: 5;
+        }
+
+        .gantt-grid-cell {
+            border-right: 1px solid #f1f5f9;
+            height: 100%;
+        }
+
+        .gantt-bar {
+            position: absolute;
+            height: 18px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+
+        .gantt-bar:hover {
+            transform: scaleY(1.1);
+            z-index: 20;
+            opacity: 1;
+        }
+
+        .bar-planned { background-color: var(--chart-planned); top: 4px; }
+        .bar-actual { background-color: var(--chart-actual); top: 24px; }
+
+        /* --- KPIs Dashboard --- */
+        .kpi-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 40px;
+        }
+        
+        .kpi-card { 
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            padding: 25px 20px; 
+            border-radius: 12px; 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+        }
+        
+        .kpi-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .kpi-value { 
+            display: block; 
+            font-size: 2rem; 
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .kpi-sub {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* --- Novos KPIs EVM --- */
+        .evm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .evm-box {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .donut-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            position: relative;
+        }
+
+        /* --- Footer --- */
+        footer { 
+            background: #1e293b; 
+            color: #94a3b8; 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .footer-links a { 
+            color: white; 
+            margin: 0 15px;
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover { color: var(--secondary); }
+
+        /* --- Utilitários de Status --- */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .status-success { color: var(--secondary-dark); background: #d1fae5; }
+        .status-warning { color: #b45309; background: #fef3c7; }
+        
+        /* --- Nova seção de Estratégias --- */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .strategy-card {
+            background: linear-gradient(145deg, #f1f5f9, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .strategy-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* --- NOVAS SEÇÕES TÉCNICAS --- */
+        .comparison-table {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .risk-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--danger);
+            border: 1px solid #e2e8f0;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .compliance-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .technical-kpis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-kpi {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tech-kpi-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        /* --- Executivo --- */
+        .executive-summary {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .summary-point {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (max-width: 768px) {
+            .evm-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .card { padding: 25px 20px; }
+            .cta-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            header { padding-bottom: 80px; }
+            .wrapper { margin-top: -40px; }
+            .strategy-grid { grid-template-columns: 1fr; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .executive-summary { padding: 25px 20px; }
+            .risk-matrix, .compliance-grid, .technical-kpis { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="Executivo_Silvanio_Gestor.png" alt="Silvanio Gois" class="profile-img" onerror="this.style.display='none'">
+        <h1>Silvanio Gois | Gestor de Projetos Estratégicos</h1>
+        <p class="subtitle">Análise de Dados para Tomada de Decisão em Gestão de Obras e Processos</p>
+        
+        <div class="cta-group">
+            <a href="https://wa.me/5513988301094" target="_blank" class="btn btn-primary">
+                WhatsApp
+            </a>
+            <a href="mailto:sg@silvaniogois.com.br" class="btn btn-outline">
+                E-mail: sg@silvaniogois.com.br
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="wrapper">
+    <section class="card">
+        <h2>Projeto: Modernização Administrativa</h2>
+        <p style="margin-bottom: 25px; color: var(--text-muted);">
+            Gestão end-to-end de reforma corporativa com otimização de custos baseada em benchmarking de mercado 2025 e cumprimento rigoroso de prazos.
+        </p>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="label">Cliente</div>
+                <div class="value">"Comércio & Cia Ltda."</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Área</div>
+                <div class="value">180m²</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Benchmarking Mercado 2025</div>
+                <div class="value">R$ 1.350,00/m²</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Status</div>
+                <div class="value" style="color: var(--secondary);">Concluído (Antecipado)</div>
+            </div>
+        </div>
+        
+        <h3>Escopo Técnico</h3>
+        <div class="specs-grid">
+            <div class="spec-box">
+                <strong>Infraestrutura Civil</strong>
+                <p>• Divisórias Drywall Acústico (STC 45dB)</p>
+                <p>• Piso Porcelanato 60x60 (PEI IV)</p>
+                <p>• Iluminação LED Automatizada (DALI)</p>
+                <p>• Pintura Acrílica Premium</p>
+            </div>
+            <div class="spec-box">
+                <strong>Tecnologia & TI</strong>
+                <p>• Cabeamento Cat6 (24 pontos)</p>
+                <p>• Rede Wi-Fi Corporativa Mesh</p>
+                <p>• CFTV IP Digital 4K</p>
+                <p>• Automação Residencial KNX</p>
+            </div>
+            <div class="spec-box">
+                <strong>Conforto e Sustentabilidade</strong>
+                <p>• Climatização VRV Inverter</p>
+                <p>• Acústica Arquitetônica</p>
+                <p>• Lâmpadas LED 18W/m²</p>
+                <p>• Certificação Procel Edifica A</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Estratégias de Otimização de Custos</h2>
+        <div class="strategy-grid">
+            <div class="strategy-card">
+                <h4>Compra Direta de Fábrica</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Negociação direta com fabricantes de drywall, porcelanato e elétrica, eliminando intermediários.</p>
+            </div>
+            <div class="strategy-card">
+                <h4>Pacote Fechado Mobiliário</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Contratação de fornecedor único para mobiliário completo com desconto de volume (35%).</p>
+            </div>
+            <div class="strategy-card">
+                <h4>Gestão Just-in-Time</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Programação de entregas para redução de estoque e custos de armazenamento.</p>
+            </div>
+            <div class="strategy-card">
+                <h4>Projeto Otimizado</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Redução de perdas através de modelagem BIM e corte otimizado de materiais.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Dashboard de Performance</h2>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-title">Eficiência Orçamentária</div>
+                <span class="kpi-value">95,2%</span>
+                <span class="kpi-sub status-success">Abaixo do Budget</span>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Aderência ao Prazo</div>
+                <span class="kpi-value">100%</span>
+                <span class="kpi-sub status-success">Entrega na Semana 11</span>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Satisfação (NPS)</div>
+                <span class="kpi-value">9,5</span>
+                <span class="kpi-sub">Escala de 0 a 10</span>
+            </div>
+            <div class="kpi-card" style="border-color: var(--secondary);">
+                <div class="kpi-title">Economia Global</div>
+                <span class="kpi-value" style="font-size: 1.8rem">R$ 12.600</span>
+                <span class="kpi-sub status-success" style="font-size:0.75rem;">3.5k (Op) + 9.1k (Reserva)</span>
+            </div>
+        </div>
+        
+        <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid var(--primary-light);">
+            <p style="font-size: 0.9rem; color: var(--text-main); margin: 0;">
+                <strong>Nota Técnica:</strong> Custos alinhados ao SINAPI 2025, INCC +8,5% (2024) e referência CUB comercial SP (R$ 1.850/m²). 
+                A economia global de 4,8% inclui eficiência operacional e saldo não utilizado da reserva técnica.
+            </p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Análise Financeira Detalhada (Valores Ajustados 2025)</h2>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Orçado (R$)</th>
+                        <th>Realizado (R$)</th>
+                        <th>Var. (%)</th>
+                        <th>Status</th>
+                        <th>Detalhes Técnicos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Materiais de Construção</td>
+                        <td>80.000,00</td>
+                        <td>78.500,00</td>
+                        <td>-1,88%</td>
+                        <td><span class="status-badge status-success">Economia</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">Drywall, porcelanato, estruturas</td>
+                    </tr>
+                    <tr>
+                        <td>Acabamentos Premium</td>
+                        <td>50.000,00</td>
+                        <td>48.900,00</td>
+                        <td>-2,20%</td>
+                        <td><span class="status-badge status-success">Economia</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">Pintura, revestimentos, iluminação</td>
+                    </tr>
+                    <tr>
+                        <td>Instalações Elétricas</td>
+                        <td>28.000,00</td>
+                        <td>29.100,00</td>
+                        <td>+3,93%</td>
+                        <td><span class="status-badge status-warning">Desvio Controlado</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">24 pontos Cat6 + automação</td>
+                    </tr>
+                    <tr>
+                        <td>Climatização VRV</td>
+                        <td>36.000,00</td>
+                        <td>35.800,00</td>
+                        <td>-0,56%</td>
+                        <td><span class="status-badge status-success">Economia</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">72.000 BTU total - Inverter</td>
+                    </tr>
+                    <tr>
+                        <td>Mobiliário Corporativo</td>
+                        <td>50.000,00</td>
+                        <td>48.200,00</td>
+                        <td>-3,60%</td>
+                        <td><span class="status-badge status-success">Alta Economia</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">12 estações + reunião + direção</td>
+                    </tr>
+                    <tr>
+                        <td>Projetos e Laudos</td>
+                        <td>8.000,00</td>
+                        <td>8.000,00</td>
+                        <td>0,00%</td>
+                        <td><span class="status-badge status-success">Exato</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">ART, AVCB, projetos complementares</td>
+                    </tr>
+                    <tr>
+                        <td>Reserva Técnica (5%)</td>
+                        <td>12.600,00</td>
+                        <td>3.500,00</td>
+                        <td>-72,2%</td>
+                        <td><span class="status-badge status-success">Não Utilizada</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);">Uso parcial (apenas imprevistos)</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL CONSOLIDADO</strong></td>
+                        <td><strong>264.600,00</strong></td>
+                        <td><strong>252.000,00</strong></td>
+                        <td><strong>-4,8%</strong></td>
+                        <td style="color:var(--secondary-dark)"><strong>ABAIXO DO BUDGET</strong></td>
+                        <td style="font-size: 0.8rem; color: var(--text-muted);"><strong>Economia: R$ 12.600,00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background: #f8fafc; border-radius: 8px;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+                <strong>Referências de Mercado:</strong> SINAPI 2025 | INCC: +8,5% (2024) | CUB-SP Comercial: R$ 1.850/m² | 
+                Custo Médio Reforma Corporativa SP: R$ 1.200-1.800/m²
+            </p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2> Benchmarking Técnico com Referências Oficiais</h2>
+        
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Este Projeto</th>
+                        <th>SINAPI 2025</th>
+                        <th>CUB-SP Comercial</th>
+                        <th>Variação vs. SINAPI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Custo/m² Reforma</td>
+                        <td><strong>R$ 1.380</strong></td>
+                        <td>R$ 1.420-1.550</td>
+                        <td>R$ 1.720-1.850</td>
+                        <td style="color: var(--secondary);">-2,8%</td>
+                    </tr>
+                    <tr>
+                        <td>Prazo Execução</td>
+                        <td>11 semanas</td>
+                        <td>12-14 semanas</td>
+                        <td>14-16 semanas</td>
+                        <td style="color: var(--secondary);">-8,3%</td>
+                    </tr>
+                    <tr>
+                        <td>Custo Elétrica/m²</td>
+                        <td>R$ 161,67</td>
+                        <td>R$ 155-170</td>
+                        <td>R$ 180-200</td>
+                        <td style="color: var(--accent);">+4,3%</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Média Ponderada</strong></td>
+                        <td><strong>R$ 1.380/m²</strong></td>
+                        <td><strong>R$ 1.485/m²</strong></td>
+                        <td><strong>R$ 1.785/m²</strong></td>
+                        <td style="color: var(--secondary);"><strong>-7,1%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h4 style="color: var(--primary-light); margin-bottom: 15px;">📐 Composição de Custos Unitários (referência SINAPI 2025)</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Unidade</th>
+                            <th>Custo Unitário (R$)</th>
+                            <th>SINAPI 2025 (R$)</th>
+                            <th>Variação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Drywall (montagem)</td>
+                            <td>m²</td>
+                            <td>68,00</td>
+                            <td>72,50</td>
+                            <td style="color: var(--secondary);">-6,2%</td>
+                        </tr>
+                        <tr>
+                            <td>Porcelanato (assentamento)</td>
+                            <td>m²</td>
+                            <td>85,00</td>
+                            <td>92,00</td>
+                            <td style="color: var(--secondary);">-7,6%</td>
+                        </tr>
+                        <tr>
+                            <td>Inst. ponto elétrico</td>
+                            <td>un</td>
+                            <td>145,00</td>
+                            <td>155,00</td>
+                            <td style="color: var(--secondary);">-6,5%</td>
+                        </tr>
+                        <tr>
+                            <td>Pintura acrílica</td>
+                            <td>m²</td>
+                            <td>28,50</td>
+                            <td>32,00</td>
+                            <td style="color: var(--secondary);">-10,9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Engenharia de Custos e Performance (EVM)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Análise baseada na metodologia do PMBOK (Gerenciamento de Valor Agregado) para validar a eficiência do projeto.
+        </p>
+
+        <div class="evm-grid">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="evm-box">
+                    <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted)">IDC (Índice de Desempenho de Custo)</span>
+                    <div style="display:flex; align-items:baseline; gap:10px;">
+                        <span style="font-size:2.5rem; font-weight:800; color:var(--secondary);">1,048</span>
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Meta > 1.0</span>
+                    </div>
+                    <p style="font-size:0.85rem; margin-top:5px;">Para cada R$ 1,00 investido, o projeto entregou R$ 1,048 em valor (Considerando Reserva).</p>
+                </div>
+                
+                <div class="evm-box" style="border-left-color: var(--primary-light);">
+                    <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted)">IDP (Índice de Desempenho de Prazo)</span>
+                    <div style="display:flex; align-items:baseline; gap:10px;">
+                        <span style="font-size:2.5rem; font-weight:800; color:var(--primary-light);">1,09</span>
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Meta > 1.0</span>
+                    </div>
+                    <p style="font-size:0.85rem; margin-top:5px;">O projeto avançou em uma velocidade 9% superior ao cronograma base.</p>
+                </div>
+                
+                <div class="evm-box" style="border-left-color: var(--accent);">
+                    <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted)">Variação Total (CV)</span>
+                    <div style="display:flex; align-items:baseline; gap:10px;">
+                        <span style="font-size:2rem; font-weight:800; color:var(--secondary);">-R$ 12.600</span>
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Negativo = Economia</span>
+                    </div>
+                    <p style="font-size:0.85rem; margin-top:5px;">Economia real somando eficiência operacional + saldo de contingência.</p>
+                </div>
+            </div>
+
+            <div class="chart-wrapper" style="margin:0; display:flex; flex-direction:column; align-items:center;">
+                <h4 style="margin-bottom:15px; color:var(--text-main);">Distribuição de Custos Reais (Total: R$ 252.000)</h4>
+                <div class="donut-container" id="donutChart">
+                    </div>
+                <div id="donutLegend" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:15px; font-size:0.8rem;">
+                    </div>
+                <div style="margin-top: 15px; text-align: center;">
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">
+                        <strong>Custo por m²:</strong> R$ 1.380/m² (S/ Reserva) | <strong>Mercado:</strong> R$ 1.200-1.800/m²
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <h2>Cronograma Executivo (Gantt) - 12 Semanas</h2>
+            <div style="font-size:0.85rem; display:flex; gap:15px;">
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:var(--chart-planned); border-radius:2px;"></span> Planejado</span>
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; background:var(--chart-actual); border-radius:2px;"></span> Realizado</span>
+            </div>
+        </div>
+        
+        <div class="chart-wrapper">
+            <div class="gantt-scroll-container">
+                <div id="ganttContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Curva S: Evolução Físico-Financeira - 12 Semanas</h2>
+        <div class="chart-wrapper">
+            <div id="sCurveChart" style="width: 100%; height: 350px;"></div>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 30px; margin-top: 15px; font-size: 0.85rem;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 15px; height: 3px; background: #60a5fa;"></div>
+                <span>Planejado (R$ 264.600)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 15px; height: 3px; background: #10b981;"></div>
+                <span>Realizado (R$ 252.000)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2> KPIs Técnicos de Performance</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Indicadores técnicos específicos da gestão de obras que demonstram eficiência operacional.
+        </p>
+        
+        <div class="technical-kpis">
+            <div class="tech-kpi">
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Produtividade Mão de Obra</div>
+                <div class="tech-kpi-value">0,85</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">h/m² (meta: 0,90)</div>
+            </div>
+            <div class="tech-kpi">
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Índice de Retrabalho</div>
+                <div class="tech-kpi-value">2,1%</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">% do total (meta: &lt;3%)</div>
+            </div>
+            <div class="tech-kpi">
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Cumprimento 5S</div>
+                <div class="tech-kpi-value">92%</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Pontuação (meta: 85%)</div>
+            </div>
+            <div class="tech-kpi">
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Lead Time Materiais</div>
+                <div class="tech-kpi-value">4,2</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">dias (meta: 5)</div>
+            </div>
+        </div>
+        
+        <div style="background:#f0f9ff; padding:15px; border-radius:8px; margin-top:20px; border-left:4px solid var(--primary-light);">
+            <p style="font-size:0.9rem; color:var(--text-main); margin:0;">
+                <strong>Nota Técnica - Equipe:</strong> 5 profissionais fixos (1 mestre, 2 pedreiros, 1 eletricista, 1 gesseiro) + 
+                especialistas pontuais. Produtividade de 0,85h/m² considera jornada de 8h/dia com 15% de produtividade acima da média 
+                devido à metodologia Lean aplicada.
+            </p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2> Matriz de Riscos e Contingências</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Identificação proativa e plano de mitigação para os principais riscos do projeto.
+        </p>
+        
+        <div class="risk-matrix">
+            <div class="risk-item">
+                <strong style="color: #ef4444;">Risco Alto: Atraso na Entrega de Materiais</strong>
+                <p style="font-size: 0.9rem; margin-top: 8px;">
+                    <strong>Probabilidade:</strong> 25% | <strong>Impacto:</strong> Alto<br>
+                    <strong>Mitigação:</strong> Pedidos com 30% de antecedência + 2 fornecedores<br>
+                    <strong>Contingência:</strong> Estoque para 7 dias (R$ 18.000)
+                </p>
+            </div>
+            <div class="risk-item" style="border-left-color: #f59e0b;">
+                <strong style="color: #f59e0b;">Risco Médio: Variação de Preços</strong>
+                <p style="font-size: 0.9rem; margin-top: 8px;">
+                    <strong>Probabilidade:</strong> 40% | <strong>Impacto:</strong> Médio<br>
+                    <strong>Mitigação:</strong> Contratos com reajuste máximo de 8%<br>
+                    <strong>Contingência:</strong> Reserva técnica de 5% (R$ 12.400)
+                </p>
+            </div>
+            <div class="risk-item" style="border-left-color: #3b82f6;">
+                <strong style="color: #3b82f6;">Risco Baixo: Problemas com Mão de Obra</strong>
+                <p style="font-size: 0.9rem; margin-top: 8px;">
+                    <strong>Probabilidade:</strong> 15% | <strong>Impacto:</strong> Baixo<br>
+                    <strong>Mitigação:</strong> Equipe própria + terceirizados qualificados<br>
+                    <strong>Contingência:</strong> Banco de profissionais reserva
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2> Conformidade Técnica e Normativa</h2>
+        
+        <div class="compliance-grid">
+            <div class="compliance-item">
+                <strong>Normas Técnicas Aplicadas</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+                    • NBR 15575:2013 - Desempenho de Edifícios<br>
+                    • NBR 5410:2004 - Instalações Elétricas<br>
+                    • NBR 5626:1998 - Instalações Hidráulicas<br>
+                    • NBR 14934:2022 - Drywall
+                </p>
+            </div>
+            <div class="compliance-item">
+                <strong>Documentação Obrigatória</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+                    • ART - Anotação de Responsabilidade Técnica<br>
+                    • Laudo de Estabilidade Estrutural<br>
+                    • Certificado de Conformidade Elétrica<br>
+                    • Projeto de Prevenção Contra Incêndio
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="executive-summary">
+        <h2 style="color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid #bae6fd; padding-bottom: 10px;">
+             Resumo Executivo & Competências
+        </h2>
+        
+        <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 25px; border-left: 5px solid var(--secondary);">
+            <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 15px; font-weight: 500;">
+                Este portfólio demonstra <strong>gestão técnica especializada</strong> com transparência total em:
+            </p>
+        </div>
+        
+        <div class="summary-grid">
+            <div class="summary-point">
+                <h4> Resultados Comprovados</h4>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    • Economia de 4,8% (R$ 12.600)<br>
+                    • Entrega antecipada (1 semana)<br>
+                    • NPS 9,5/10 de satisfação<br>
+                    • IDC 1,048 (eficiência global)
+                </p>
+            </div>
+            
+            <div class="summary-point">
+                <h4> Metodologias Aplicadas</h4>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    • EVM (Valor Agregado)<br>
+                    • Análise de dados em tempo real<br>
+                    • Benchmarking de mercado<br>
+                    • Gestão de riscos proativa
+                </p>
+            </div>
+            
+            <div class="summary-point">
+                <h4> Diferencial Técnico</h4>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    • Conhecimento técnico em edificações<br>
+                    • Domínio de SINAPI, INCC, CUB<br>
+                    • Gestão de fornecedores estratégica<br>
+                    • Transparência total nos custos
+                </p>
+            </div>
+        </div>
+        
+        <div style="background: #dcfce7; padding: 20px; border-radius: 8px; margin-top: 25px; border: 1px solid #86efac;">
+            <p style="font-size: 1rem; color: var(--text-main); margin: 0; text-align: center; font-weight: 600;">
+                "Transformo dados complexos em decisões estratégicas claras, garantindo que projetos de construção 
+                entreguem valor real dentro do orçamento e prazo estabelecidos."
+            </p>
+            <p style="text-align: center; margin-top: 10px; color: var(--secondary-dark); font-weight: 500;">
+                — Silvanio Gois, Gestor de Projetos Estratégicos
+            </p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="color: white; margin-bottom: 20px;">Silvanio Gois</h3>
+        <p style="margin-bottom: 30px; opacity: 0.8;">
+            Transformando dados em decisões estratégicas na construção civil e gestão de processos. 
+            Especialista em gestão de custos com base em SINAPI, INCC e benchmarking de mercado.
+        </p>
+        <div class="footer-links" style="margin-bottom: 30px;">
+            <a href="https://www.linkedin.com/in/silvanio-gois-6667b918b/" target="_blank">LinkedIn</a>
+            <a href="https://www.silvaniogois.com.br/" target="_blank">Website</a>
+            <span style="color: white; margin: 0 15px;">sg@silvaniogois.com.br</span>
+            <a href="https://wa.me/5513988301094" target="_blank">WhatsApp</a>
+        </div>
+        <div style="font-size: 0.85rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p>© 2025 Silvanio Gois. Todos os direitos reservados.</p>
+            <p style="margin-top: 5px;">Custos baseados em referências SINAPI 2025, INCC e CUB-SP. Valores atualizados para realidade de mercado.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- Geração do Donut Chart (AJUSTADO: INCLUI RESERVA UTILIZADA) ---
+    function renderDonut() {
+        const data = [
+            { label: "Materiais", value: 78500, color: "#1e3a8a" },
+            { label: "Acabamentos", value: 48900, color: "#3b82f6" },
+            { label: "Climatização", value: 35800, color: "#60a5fa" },
+            { label: "Elétrica", value: 29100, color: "#93c5fd" },
+            { label: "Mobiliário", value: 48200, color: "#bfdbfe" },
+            { label: "Projetos", value: 8000, color: "#dbeafe" },
+            { label: "Reserva Utilizada", value: 3500, color: "#e2e8f0" } // Adicionado para bater o total
+        ];
+        
+        const total = data.reduce((acc, curr) => acc + curr.value, 0);
+        let cumulativeAngle = 0;
+        
+        const svgNS = "http://www.w3.org/2000/svg";
+        const size = 200;
+        const radius = size / 2;
+        const holeRadius = 60;
+        
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", size);
+        svg.setAttribute("height", size);
+        svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
+        
+        data.forEach(slice => {
+            const percentage = slice.value / total;
+            const angle = percentage * 360;
+            
+            const startX = radius + radius * Math.cos(Math.PI * (cumulativeAngle - 90) / 180);
+            const startY = radius + radius * Math.sin(Math.PI * (cumulativeAngle - 90) / 180);
+            const endX = radius + radius * Math.cos(Math.PI * (cumulativeAngle + angle - 90) / 180);
+            const endY = radius + radius * Math.sin(Math.PI * (cumulativeAngle + angle - 90) / 180);
+            
+            const largeArcFlag = angle > 180 ? 1 : 0;
+            
+            const pathData = [
+                `M ${radius} ${radius}`,
+                `L ${startX} ${startY}`,
+                `A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY}`,
+                `Z`
+            ].join(' ');
+            
+            const path = document.createElementNS(svgNS, "path");
+            path.setAttribute("d", pathData);
+            path.setAttribute("fill", slice.color);
+            path.setAttribute("stroke", "white");
+            path.setAttribute("stroke-width", "2");
+            
+            const title = document.createElementNS(svgNS, "title");
+            title.textContent = `${slice.label}: R$ ${slice.value.toLocaleString('pt-BR')} (${(percentage*100).toFixed(1)}%)`;
+            path.appendChild(title);
+            
+            svg.appendChild(path);
+            cumulativeAngle += angle;
+        });
+
+        const hole = document.createElementNS(svgNS, "circle");
+        hole.setAttribute("cx", radius);
+        hole.setAttribute("cy", radius);
+        hole.setAttribute("r", holeRadius);
+        hole.setAttribute("fill", "white");
+        svg.appendChild(hole);
+
+        const textValue = document.createElementNS(svgNS, "text");
+        textValue.setAttribute("x", radius);
+        textValue.setAttribute("y", radius + 5);
+        textValue.setAttribute("text-anchor", "middle");
+        textValue.setAttribute("font-size", "14");
+        textValue.setAttribute("font-weight", "bold");
+        textValue.setAttribute("fill", "#1e3a8a");
+        // Atualizado para bater com o Total Realizado
+        textValue.textContent = "R$ 252k";
+        svg.appendChild(textValue);
+
+        document.getElementById('donutChart').innerHTML = '';
+        document.getElementById('donutChart').appendChild(svg);
+
+        const legendContainer = document.getElementById('donutLegend');
+        legendContainer.innerHTML = '';
+        data.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.style.display = 'flex';
+            itemDiv.style.alignItems = 'center';
+            itemDiv.style.marginRight = '10px';
+            const percentage = ((item.value / total) * 100).toFixed(1);
+            itemDiv.innerHTML = `
+                <span style="width:10px; height:10px; background:${item.color}; border-radius:50%; display:inline-block; margin-right:5px;"></span>
+                <span>${item.label} (${percentage}%)</span>
+            `;
+            legendContainer.appendChild(itemDiv);
+        });
+    }
+
+    // --- Gantt Chart (MANTIDO) ---
+    const ganttData = [
+        { task: "Planejamento", start: 1, end: 1, actStart: 1, actEnd: 1 },
+        { task: "Demolição", start: 2, end: 2, actStart: 2, actEnd: 2 },
+        { task: "Inst. Elétrica", start: 3, end: 4, actStart: 3, actEnd: 4 },
+        { task: "Inst. Hidráulica", start: 4, end: 5, actStart: 4, actEnd: 5 },
+        { task: "Drywall", start: 5, end: 6, actStart: 5, actEnd: 6 },
+        { task: "Pisos", start: 7, end: 7, actStart: 7, actEnd: 7 },
+        { task: "Pintura", start: 8, end: 8, actStart: 8, actEnd: 8 },
+        { task: "Climatização", start: 9, end: 9, actStart: 9, actEnd: 9 },
+        { task: "Mobiliário", start: 10, end: 10, actStart: 10, actEnd: 10 },
+        { task: "Entrega Final", start: 12, end: 12, actStart: 11, actEnd: 11 }
+    ];
+
+    function renderGantt() {
+        const container = document.getElementById('ganttContainer');
+        container.innerHTML = '';
+        container.className = 'gantt-chart';
+        const header = document.createElement('div');
+        header.className = 'gantt-header-row';
+        header.innerHTML = `<div class="gantt-col-header">Atividade / Semana</div>`;
+        for(let i=1; i<=12; i++) {
+            header.innerHTML += `<div class="gantt-col-header">${i}</div>`;
+        }
+        container.appendChild(header);
+        ganttData.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'gantt-row';
+            const label = document.createElement('div');
+            label.className = 'gantt-task-label';
+            label.textContent = item.task;
+            row.appendChild(label);
+            for(let i=1; i<=12; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'gantt-grid-cell';
+                row.appendChild(cell);
+            }
+            const plannedBar = document.createElement('div');
+            plannedBar.className = 'gantt-bar bar-planned';
+            plannedBar.style.left = `calc(200px + ${(item.start - 1) * 100 / 12}%)`;
+            plannedBar.style.width = `calc(${(item.end - item.start + 1) * 100 / 12}% - 4px)`;
+            plannedBar.textContent = 'Plan';
+            row.appendChild(plannedBar);
+            const actualBar = document.createElement('div');
+            actualBar.className = 'gantt-bar bar-actual';
+            actualBar.style.left = `calc(200px + ${(item.actStart - 1) * 100 / 12}%)`;
+            actualBar.style.width = `calc(${(item.actEnd - item.actStart + 1) * 100 / 12}% - 4px)`;
+            actualBar.textContent = 'Real';
+            row.appendChild(actualBar);
+            container.appendChild(row);
+        });
+    }
+
+    // --- Curva S (MANTIDA) ---
+    const sCurveData = {
+        weeks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        planned: [5000, 15000, 35000, 65000, 100000, 140000, 175000, 210000, 230000, 242000, 248000, 264600],
+        actual: [4800, 14000, 34000, 63000, 98000, 135000, 170000, 205000, 225000, 237000, 243000, 252000]
+    };
+
+    function renderSCurve() {
+        const container = document.getElementById('sCurveChart');
+        const width = container.clientWidth;
+        const height = 350;
+        const pad = { top: 30, right: 30, bottom: 40, left: 60 };
+        const chartW = width - pad.left - pad.right;
+        const chartH = height - pad.top - pad.bottom;
+        const maxVal = 270000;
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", height);
+        
+        // Linhas horizontais de referência
+        for(let i=0; i<=5; i++) {
+            const y = pad.top + chartH - (i/5)*chartH;
+            const line = document.createElementNS(svgNS, "line");
+            line.setAttribute("x1", pad.left);
+            line.setAttribute("y1", y);
+            line.setAttribute("x2", width - pad.right);
+            line.setAttribute("y2", y);
+            line.setAttribute("stroke", "#e2e8f0");
+            const text = document.createElementNS(svgNS, "text");
+            text.setAttribute("x", pad.left - 10);
+            text.setAttribute("y", y + 4);
+            text.setAttribute("text-anchor", "end");
+            text.setAttribute("font-size", "11");
+            text.setAttribute("fill", "#64748b");
+            text.textContent = `R$ ${(i * maxVal / 5000).toFixed(0)}k`;
+            svg.appendChild(line);
+            svg.appendChild(text);
+        }
+        
+        // Marcadores de semanas no eixo X
+        sCurveData.weeks.forEach((w, i) => {
+            const x = pad.left + (i / (sCurveData.weeks.length - 1)) * chartW;
+            const text = document.createElementNS(svgNS, "text");
+            text.setAttribute("x", x);
+            text.setAttribute("y", height - 10);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("font-size", "11");
+            text.setAttribute("fill", "#64748b");
+            text.textContent = `Sem ${w}`;
+            svg.appendChild(text);
+        });
+        
+        // Função para criar linhas
+        const makePath = (data, color, isDashed) => {
+            let d = "";
+            data.forEach((val, i) => {
+                const x = pad.left + (i / (data.length - 1)) * chartW;
+                const y = pad.top + chartH - (val / maxVal) * chartH;
+                d += (i===0 ? "M" : "L") + ` ${x} ${y}`;
+                const circle = document.createElementNS(svgNS, "circle");
+                circle.setAttribute("cx", x);
+                circle.setAttribute("cy", y);
+                circle.setAttribute("r", 4);
+                circle.setAttribute("fill", "white");
+                circle.setAttribute("stroke", color);
+                circle.setAttribute("stroke-width", 2);
+                svg.appendChild(circle);
+            });
+            const path = document.createElementNS(svgNS, "path");
+            path.setAttribute("d", d);
+            path.setAttribute("fill", "none");
+            path.setAttribute("stroke", color);
+            path.setAttribute("stroke-width", 3);
+            if(isDashed) path.setAttribute("stroke-dasharray", "5,5");
+            svg.insertBefore(path, svg.firstChild);
+        };
+        
+        makePath(sCurveData.planned, "#60a5fa", false);
+        makePath(sCurveData.actual, "#10b981", false);
+        
+        container.innerHTML = '';
+        container.appendChild(svg);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderGantt();
+        renderSCurve();
+        renderDonut();
+        
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                renderSCurve();
+            }, 250);
+        });
+    });
+</script>
+
+</body>
+</html>
